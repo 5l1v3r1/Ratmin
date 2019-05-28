@@ -1,60 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5445c69d-c55f-428f-82d4-155a3aa6618d" name="Local" comment="Local">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Ratmin-0.0.1-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Ratmin-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/server/Server.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/server/SingleShot.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/server/Streams.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/server/ThreadPool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/server/threads/PingCheck.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/server/threads/TimeHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Config/ConfigManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ratmin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/ClientTableCellRenderer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/ClientTableModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/ShellUi$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/ShellUi$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/ShellUi.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$11.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$12.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$13.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$14.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$8.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui$9.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/user_interface/Ui/Ui.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/utils/ClassEditor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/utils/ClientBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/utils/Notifications/NotificationSound.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/utils/Notifications/Toaster$Animation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/utils/Notifications/Toaster$SingleToaster$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/utils/Notifications/Toaster$SingleToaster.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/utils/Notifications/Toaster.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/utils/Obfuscator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/me/slimig/ratmin/utils/Packets/Packet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/resources/City.mmdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/resources/Client.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/resources/DummyStub.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/resources/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/resources/small-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/resources/tools.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-    </list>
+    <list default="true" id="5445c69d-c55f-428f-82d4-155a3aa6618d" name="Local" comment="Local" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -297,7 +244,21 @@
       <option name="project" value="LOCAL" />
       <updated>1559074356824</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Local">
+      <created>1559075966796</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1559075966796</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Local">
+      <created>1559076072666</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1559076072666</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -318,19 +279,19 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31342283" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49895614" visible="true" weight="0.30403647" />
+      <window_info id="Structure" order="1" sideWeight="0.50104386" side_tool="true" visible="true" weight="0.30403647" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5013423" side_tool="true" weight="0.35410765" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50130206" side_tool="true" weight="0.34293553" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.4987715" weight="0.30385488" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.4986577" visible="true" weight="0.35410765" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.4986979" visible="true" weight="0.34293553" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" sideWeight="0.4986577" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.5013423" side_tool="true" visible="true" weight="0.35410765" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.50130206" side_tool="true" weight="0.34293553" />
       <window_info anchor="right" id="Palette" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Maven" weight="0.2721354" />
@@ -342,8 +303,11 @@
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Testing Project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing Project" />
+    <MESSAGE value="Local" />
+    <option name="LAST_COMMIT_MESSAGE" value="Local" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/target/config.properties">
