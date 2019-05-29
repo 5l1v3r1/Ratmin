@@ -101,7 +101,7 @@
             <version>1.8.0</version>
         </dependency>
         <dependency>
-        <groupId>com.superblaubeere27</groupId>
+        <groupId>me.repo.superblaubeere27</groupId>
         <artifactId>obfuscator</artifactId>
         <version>1.9.3</version>
       </dependency>
