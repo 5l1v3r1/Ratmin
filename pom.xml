@@ -88,11 +88,6 @@
             <artifactId>weblaf</artifactId>
             <version>1.27</version>
         </dependency>
-        <dependency>
-            <groupId>me.superblaubeere27</groupId>
-            <artifactId>obfuscator</artifactId>
-            <version>1.9.3</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/com.miglayout/miglayout-swing -->
         <dependency>
             <groupId>com.miglayout</groupId>
