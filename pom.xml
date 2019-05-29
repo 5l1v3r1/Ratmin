@@ -19,7 +19,7 @@
     <packaging>jar</packaging>
 
     <name>Ratmin</name>
-    <url>http://maven.apache.org</url>
+    <url>http://slimemod.net</url>
 
     <repositories>
         <repository>
