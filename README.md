@@ -1,4 +1,4 @@
-# Ratmin
+# Ratmin [![Build Status]https://travis-ci.org/Slimig/Ratmin.svg?branch=master)]
 
 ### When you don't have JDK (Java Development Kit) installed I recommend to launch Ratmin with admin permissions for the first time. 
 
