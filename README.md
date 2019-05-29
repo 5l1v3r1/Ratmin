@@ -10,3 +10,4 @@ Ratmin is a Java Remote Administration Tool with a modern designed Gui. Its easy
 
 ## Credits
 - superblaubeere27 (obfuscator)
+- adolfintel (WaifUPnP)
