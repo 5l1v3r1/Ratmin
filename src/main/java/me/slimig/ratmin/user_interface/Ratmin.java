@@ -1,28 +1,10 @@
 package me.slimig.ratmin.user_interface;
 
-import java.awt.Font;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.BindException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-
-import javax.sound.sampled.LineUnavailableException;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 import com.alee.laf.WebLookAndFeel;
 import com.dosse.upnp.UPnP;
-
 import com.maxmind.geoip2.DatabaseReader;
 import com.maxmind.geoip2.exception.GeoIp2Exception;
 import com.maxmind.geoip2.model.CityResponse;
-
 import me.slimig.ratmin.server.Server;
 import me.slimig.ratmin.server.Streams;
 import me.slimig.ratmin.server.threads.PingCheck;
@@ -32,6 +14,15 @@ import me.slimig.ratmin.user_interface.Ui.Ui;
 import me.slimig.ratmin.utils.Notifications.NotificationSound;
 import me.slimig.ratmin.utils.Notifications.Toaster;
 import me.slimig.ratmin.utils.Packets.Packet;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.*;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Ratmin {
 
@@ -105,51 +96,27 @@ public class Ratmin {
 
     public static void main(String[] args) {
 
-        // System.out.println("C:\\Program Files\\Java\\jdk"+
-        // System.getProperty("java.version"));
-
-        // System.getProperty("java.version"));
-
-        /*
-         * String port = JOptionPane.showInputDialog("Please enter server port"); Server
-         * server = null; try { server = new Server(Integer.parseInt(port)); } catch
-         * (NumberFormatException e) { e.printStackTrace(); } catch (BindException e) {
-         * JOptionPane.showMessageDialog(null, "   Port already in use!", "Error", 0);
-         * System.exit(0); } catch (IOException e) { e.printStackTrace(); }
-         *
-         * server.startServer(); Ratmin.selserver = server; Ratmin.port =
-         * Integer.parseInt(port);
-         */
-
         try {
             WebLookAndFeel.install();
         } catch (Exception e) {
             if (System.getProperty("os.name").contains("Windows")) {
                 try {
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-                    // UIManager.setLookAndFeel( "com.seaglasslookandfeel.SeaGlassLookAndFeel" );
-                } catch (ClassNotFoundException e1) {
-                    e1.printStackTrace();
-                } catch (InstantiationException e1) {
-                    e1.printStackTrace();
-                } catch (IllegalAccessException e1) {
-                    e1.printStackTrace();
-                } catch (UnsupportedLookAndFeelException e1) {
+                } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             } else {
                 try {
                     UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-                        | UnsupportedLookAndFeelException e1) {
-                    e1.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
         }
 
         ConfigManager.createConfig();
-        port = (int) Integer.parseInt(ConfigManager.readKey("Port"));
-        if (Boolean.valueOf(ConfigManager.readKey("ListenOnLaunch")) == true) {
+        port = Integer.parseInt(ConfigManager.readKey("Port"));
+        if (Boolean.valueOf(ConfigManager.readKey("ListenOnLaunch"))) {
             try {
                 Ratmin.selserver = new Server(port);
                 Ratmin.selserver.startServer();
@@ -159,23 +126,20 @@ public class Ratmin {
                 e.printStackTrace();
             }
         }
-        try {
-            gui = new Ui();
-        } catch (Exception e) {
 
-            e.printStackTrace();
-        }
+        gui = new Ui();
+
 
         gui.setVisible(true);
-        if (Boolean.valueOf(ConfigManager.readKey("UPnP")) == true) {
-            portforward(port);
+        if (Boolean.valueOf(ConfigManager.readKey("UPnP"))) {
+            portForward(port);
         }
         PingCheck pc = new PingCheck("PingC");
         pc.run();
 
     }
 
-    public static void portforward(int port2f) {
+    public static void portForward(int port2f) {
         System.out.println("Attempting UPnP port forwarding...");
         if (UPnP.isUPnPAvailable()) { // is UPnP available?
             if (UPnP.isMappedTCP(port2f)) { // is the port already mapped?

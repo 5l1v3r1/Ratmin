@@ -24,17 +24,6 @@ public class ConfigManager {
         }
     }
 
-    public static void deleteKey(String key) {
-        if (prop.getProperty(key) != null) {
-            prop.remove(key);
-            try {
-                prop.store(new FileOutputStream(ConfigFileName), null);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     public static String readKey(String key) {
         try {
             prop.load(new FileInputStream(ConfigFileName));

@@ -384,7 +384,7 @@ public class Ui extends JFrame {
             public void actionPerformed(ActionEvent ev) {
                 if (chckbxForwardPortUsing.isSelected()) {
                     ConfigManager.editEntry("UPnP", "true");
-                    Ratmin.portforward(Integer.parseInt(ConfigManager.readKey("Port")));
+                    Ratmin.portForward(Integer.parseInt(ConfigManager.readKey("Port")));
                 } else {
                     ConfigManager.editEntry("UPnP", "false");
                 }

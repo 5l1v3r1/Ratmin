@@ -1,22 +1,14 @@
 package me.slimig.ratmin.user_interface.Ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
+import me.slimig.ratmin.utils.Packets.Packet;
+import net.miginfocom.swing.MigLayout;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
-import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-
-import me.slimig.ratmin.utils.Packets.Packet;
-import net.miginfocom.swing.MigLayout;
 
 public class ShellUi extends JFrame {
     /**
