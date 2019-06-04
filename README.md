@@ -2,12 +2,12 @@
 
 ### When you don't have JDK (Java Development Kit) installed I recommend to launch Ratmin with admin permissions for the first time. 
 
-###Used Libraries:
+### Used Libraries:
 
 Maxmind GeoIP: https://github.com/maxmind/geoip-api-java
 WebLaf-Complete-1.28: https://github.com/mgarin/weblaf
 WaifUPnP: https://github.com/adolfintel/WaifUPnP
-##This project was designed for educational purposes only and should only be used on devices you own.
+### This project was designed for educational purposes only and should only be used on devices you own.
 
 ## About
 *Ratmin is in the beginng of Development right now. More functions will be added soon!*
