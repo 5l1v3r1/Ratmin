@@ -34,13 +34,9 @@ public class SingleShot implements Runnable {
             if (dialog.putIfAbsent(socket, new Streams(socket)) == null) {
                 System.out.println("Connected to: " + socket.getRemoteSocketAddress());
                 Packet.setCanSend(false);
-                System.out.println("test1");
                 selectedStreams = Ratmin.selserver.getMap().get(socket);
-                System.out.println("test2");
                 Ratmin.UpdateTable();
-                System.out.println("test3");
                 if (Boolean.valueOf(ConfigManager.readKey("Notification")) == true) {
-                    System.out.println("test4");
                     Toaster toaster = new Toaster();
                     toaster.setToasterMessageFont(new Font("Verdana", Font.PLAIN, 14));
                     toaster.setToasterHeight(46);

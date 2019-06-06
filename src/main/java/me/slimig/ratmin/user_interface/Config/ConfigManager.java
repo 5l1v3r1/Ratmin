@@ -42,7 +42,7 @@ public class ConfigManager {
                 prop.setProperty("ListenOnLaunch", "false");
                 prop.setProperty("UPnP", "false");
                 prop.setProperty("Notification", "false");
-                System.out.println("File created!");
+                System.out.println("Config created!");
                 // save properties to project root folder
                 prop.store(new FileOutputStream(ConfigFileName), null);
             }

@@ -141,11 +141,10 @@ public class Ratmin {
 
     public static void portForward(int port2f) {
         System.out.println("Attempting UPnP port forwarding...");
+        Toaster toaster = new Toaster();
         if (UPnP.isUPnPAvailable()) { // is UPnP available?
             if (UPnP.isMappedTCP(port2f)) { // is the port already mapped?
-                System.out.println("UPnP port forwarding not enabled: port is already mapped");
 
-                Toaster toaster = new Toaster();
                 toaster.setToasterMessageFont(new Font("Verdana", Font.PLAIN, 14));
                 toaster.setToasterHeight(46);
 
@@ -157,9 +156,7 @@ public class Ratmin {
 
                 toaster.showToaster("Ratmin\nPort already forwarded!");
             } else if (UPnP.openPortTCP(port2f)) { // try to map port
-                System.out.println("UPnP port forwarding enabled");
 
-                Toaster toaster = new Toaster();
                 toaster.setToasterMessageFont(new Font("Verdana", Font.PLAIN, 14));
                 toaster.setToasterHeight(46);
 
@@ -171,10 +168,10 @@ public class Ratmin {
 
                 toaster.showToaster("Ratmin\nPort forwarded!");
             } else {
-                System.out.println("UPnP port forwarding failed");
+                toaster.showToaster("Ratmin\nForwarding failed!");
             }
         } else {
-            System.out.println("UPnP is not available");
+            toaster.showToaster("Ratmin\nUPnP not available!");
         }
 
     }
