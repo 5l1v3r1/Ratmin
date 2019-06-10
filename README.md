@@ -29,7 +29,10 @@ Ratmin is a Java Remote Administration Tool with a modern designed Gui. Its easy
   - Shutdown
   - Uninstall (Let the Client delete itself)
 
-Website: http://slimemod.net
+
+### Screenshots:
+![Ratmin](http://slimemod.net/img/ratmin.png)
+![Ratmin](http://slimemod.net/img/ratmin-remoteshell.png)
 
 ### When you don't have JDK (Java Development Kit) installed I recommend to launch Ratmin with admin permissions for the first time. 
  
