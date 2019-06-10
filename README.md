@@ -13,6 +13,19 @@ WaifUPnP: https://github.com/adolfintel/WaifUPnP<br />
 
 Ratmin is a Java Remote Administration Tool with a modern designed Gui. Its easy to use and includes UPnP forwarding, desktop notifications and a Client builder with the option to obfuscate the output.
 
+Functions:
+
+*Basic
+-Autostart (Only for Windows right now)
+-Ip location
+-Information (Username, OS..)
+*Tools
+-Remote-Shell-beta (Execute commands on target Computer)
+*Client Management
+-Restart 
+-Shutdown
+-Uninstall (Let the Client delete itself)
+
 Website: http://slimemod.net
 
 ### When you don't have JDK (Java Development Kit) installed I recommend to launch Ratmin with admin permissions for the first time. 
