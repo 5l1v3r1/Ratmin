@@ -22,11 +22,11 @@ Ratmin is a Java Remote Administration Tool with a modern designed Gui. Its easy
 * Multiple client connections
 </br >
 * Tools:
-- Remote-Shell-beta (Execute commands on target Computer)
+  - Remote-Shell-beta (Execute commands on target Computer)
 * Client Management:
-- Restart
-- Shutdown
-- Uninstall (Let the Client delete itself)
+  - Restart
+  - Shutdown
+  - Uninstall (Let the Client delete itself)
 
 Website: http://slimemod.net
 
