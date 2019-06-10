@@ -31,8 +31,8 @@ Ratmin is a Java Remote Administration Tool with a modern designed Gui. Its easy
 
 
 ### Screenshots:
-![Ratmin](http://slimemod.net/img/ratmin.png)
-![Ratmin](http://slimemod.net/img/ratmin-remoteshell.png)
+![Ratmin](https://imgur.com/idIOcja.png)
+![Ratmin](https://imgur.com/8I3isCx.png)
 
 ### When you don't have JDK (Java Development Kit) installed I recommend to launch Ratmin with admin permissions for the first time. 
  
