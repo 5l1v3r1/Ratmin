@@ -5,7 +5,7 @@
 ### Used Libraries:
 
 Maxmind GeoIP: https://github.com/maxmind/geoip-api-java
-WebLaf-Complete-1.28: https://github.com/mgarin/weblaf
+WebLaf-Complete: https://github.com/mgarin/weblaf
 WaifUPnP: https://github.com/adolfintel/WaifUPnP
 
 ## About
