@@ -1,6 +1,6 @@
 # Ratmin [![Build Status](https://travis-ci.org/Slimig/Ratmin.svg?branch=master)](https://travis-ci.org/Slimig/Ratmin) [![Discord Chat](https://img.shields.io/discord/506400030022696960.svg?style=plastic)](https://discord.gg/invite/amgQZnA)
 
-### This project was designed for educational purposes only and should only be used on devices you own!
+### This project was designed for educational purposes only and should only be used on devices your own!
 
 ### Used Libraries:
 
