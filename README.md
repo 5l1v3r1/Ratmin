@@ -20,9 +20,10 @@ Ratmin is a Java Remote Administration Tool with a modern designed Gui. Its easy
 * UPnP (Automatically portforward)
 * Client obfuscation
 * Multiple client connections
-* Tools
+</br >
+* Tools:
 - Remote-Shell-beta (Execute commands on target Computer)
-* Client Management
+* Client Management:
 - Restart
 - Shutdown
 - Uninstall (Let the Client delete itself)
