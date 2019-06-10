@@ -4,9 +4,9 @@
 
 ### Used Libraries:
 
-Maxmind GeoIP: https://github.com/maxmind/geoip-api-java
-WebLaf: https://github.com/mgarin/weblaf
-WaifUPnP: https://github.com/adolfintel/WaifUPnP
+#Maxmind GeoIP: https://github.com/maxmind/geoip-api-java
+#WebLaf: https://github.com/mgarin/weblaf
+#WaifUPnP: https://github.com/adolfintel/WaifUPnP
 
 ## About
 *Ratmin is in the beginng of Development right now. More functions will be added soon!*
