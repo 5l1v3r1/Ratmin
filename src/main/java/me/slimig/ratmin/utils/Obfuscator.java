@@ -1,13 +1,13 @@
 package me.slimig.ratmin.utils;
 
+import me.superblaubeere27.jobf.JObf;
+import me.superblaubeere27.jobf.JObfImpl;
+import me.superblaubeere27.jobf.utils.values.Configuration;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import me.superblaubeere27.jobf.JObf;
-import me.superblaubeere27.jobf.JObfImpl;
-import me.superblaubeere27.jobf.utils.values.Configuration;
 
 public class Obfuscator {
 
